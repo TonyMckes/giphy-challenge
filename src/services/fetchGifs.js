@@ -1,3 +1,4 @@
+import axios from "axios";
 import { API_KEY, GIF_URL } from "constants/index";
 
 // prettier-ignore
@@ -14,8 +15,8 @@ async function fetchGifs({ urlType = "", query = "", limit = 25, offset = 0, rat
       byId: `${GIF_URL}/${query}?${API_KEY}`,
     };
 
-    const response = await fetch(API_URL[urlType]);
-    const { data, pagination, meta } = await response.json();
+    const { data: response } = await axios.get(API_URL[urlType]);
+    const { data, pagination, meta } = response;
 
     return { data, pagination, meta };
   } catch (error) {
