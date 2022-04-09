@@ -8,13 +8,11 @@ function SearchResults() {
 
   // TODO: extract components
   return (
-    <div>
-      <div className="container mx-auto">
-        <h1 className="m-4 text-xl font-bold ">Resultados de "{query}"...</h1>
+    <section className="container mx-auto">
+      <h1 className="m-4 text-xl font-bold ">Resultados de "{query}"...</h1>
 
-        <GridCards gifsData={searchResults} />
-      </div>
-    </div>
+      <GridLayout urlType="search" query={query} limit={10} rating={"g"} />
+    </section>
   );
 }
 export default SearchResults;
