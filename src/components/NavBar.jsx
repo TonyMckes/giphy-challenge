@@ -5,11 +5,14 @@ import SearchBox from "./SearchBox";
 function NavBar() {
   // TODO: extract components
   return (
-    <div className="bg-[#171544] p-4 sticky top-0">
+    <div className="bg-[#171544] p-4 sticky top-0 z-10">
       <div className="flex items-center justify-between mx-auto 2xl:container">
-        <div className="hidden w-1/3 md:block">
+        <div className="w-1/3">
           <Link to="/" className="text-2xl font-black">
-            GIPHY <span className="font-normal tracking-wide">Challenge</span>
+            GIPHY{" "}
+            <span className="hidden font-normal tracking-wide md:inline">
+              Challenge
+            </span>
           </Link>
         </div>
 

@@ -1,4 +1,5 @@
 import GridLayout from "components/GirdLayout";
+import SectionContainer from "components/SectionContainer";
 import { useSearchParams } from "react-router-dom";
 
 function SearchResults() {
@@ -6,13 +7,10 @@ function SearchResults() {
 
   const query = searchParams.get("q");
 
-  // TODO: extract components
   return (
-    <section className="container mx-auto">
-      <h1 className="m-4 text-xl font-bold ">Resultados de "{query}"...</h1>
-
+    <SectionContainer heading={`Resultados de "${query}"...`}>
       <GridLayout urlType="search" query={query} limit={10} rating={"g"} />
-    </section>
+    </SectionContainer>
   );
 }
 export default SearchResults;

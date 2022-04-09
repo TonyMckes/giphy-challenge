@@ -12,9 +12,11 @@ function GridLayout({ urlType, query, limit, offset, rating }) {
   }, [urlType, query, limit, offset, rating]);
 
   return (
-    <div className="container px-4 mx-auto my-4">
+    <div className="mx-auto my-4">
       <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
-        {data.length > 0 && data.map((gif) => <Card key={gif.id} {...gif} />)}
+        {data.map(({ id, images, title, user }) => (
+          <Card key={id} {...{ id, images, title, user }} />
+        ))}
       </div>
     </div>
   );

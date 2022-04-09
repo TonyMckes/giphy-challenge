@@ -1,13 +1,11 @@
 import GridLayout from "components/GirdLayout";
+import SectionContainer from "components/SectionContainer";
 
 function Home() {
-  // TODO: extract components
   return (
-    <section className="container mx-auto">
-      <h1 className="m-4 text-xl font-bold ">En trending...</h1>
-
+    <SectionContainer heading="En trending...">
       <GridLayout urlType="trending" limit={10} rating={"n"} />
-    </section>
+    </SectionContainer>
   );
 }
 export default Home;
