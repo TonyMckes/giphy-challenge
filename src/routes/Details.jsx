@@ -16,17 +16,7 @@ function Details() {
   } = data || {};
 
   useEffect(() => {
-    // TODO: extract this to a separate function
-    (async () => {
-      try {
-        const res = await fetch(`${BASE_URL}/${id}?api_key=${API_KEY}`);
-        const { data, meta, pagination } = await res.json();
-
-        setData(data);
-      } catch (error) {
-        console.error(error);
-      }
-    })();
+    fetchGifs({ type: "byId", query: id }).then(({ data }) => setData(data));
   }, []);
 
   // TODO: extract components
