@@ -16,7 +16,7 @@ function Details() {
   } = data || {};
 
   useEffect(() => {
-    fetchGifs({ type: "byId", query: id }).then(({ data }) => setData(data));
+    fetchGifs({ urlType: "byId", query: id }).then(({ data }) => setData(data));
   }, [id]);
 
   // TODO: extract components
