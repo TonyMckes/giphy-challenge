@@ -12,12 +12,10 @@ createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route element={<App />}>
-          <Route path="/">
-            <Route index element={<Home />} />
-            <Route path="search" element={<SearchResults />} />
-            <Route path="gallery/:id" element={<Details />} />
-          </Route>
+        <Route path="/" element={<App />}>
+          <Route index element={<Home />} />
+          <Route path="search" element={<SearchResults />} />
+          <Route path="gallery/:id" element={<Details />} />
         </Route>
       </Routes>
     </BrowserRouter>
