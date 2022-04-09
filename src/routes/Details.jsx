@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { BASE_URL, API_KEY } from "../constants";
+import fetchGifs from "services/fetchGifs";
 
 function Details() {
   const [data, setData] = useState({});
@@ -17,7 +17,7 @@ function Details() {
 
   useEffect(() => {
     fetchGifs({ type: "byId", query: id }).then(({ data }) => setData(data));
-  }, []);
+  }, [id]);
 
   // TODO: extract components
   return (
