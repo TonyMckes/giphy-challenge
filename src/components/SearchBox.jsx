@@ -1,3 +1,4 @@
+import useDebounce from "hooks/useDebounce";
 import { useState } from "react";
 import { MdSearch } from "react-icons/md";
 import { useNavigate, useSearchParams } from "react-router-dom";
@@ -10,7 +11,7 @@ function SearchBox({ placeholderText }) {
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    if (e) e.preventDefault();
 
     if (inputValue) {
       navigate(`/search?q=${inputValue}`);
@@ -22,6 +23,8 @@ function SearchBox({ placeholderText }) {
   const handleInput = (e) => {
     setInputValue(e.target.value);
   };
+
+  useDebounce(handleSubmit, 600, [inputValue]);
 
   return (
     <form
