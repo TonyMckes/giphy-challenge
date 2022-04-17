@@ -1,18 +1,19 @@
 import { useState } from "react";
 import { MdSearch } from "react-icons/md";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 function SearchBox({ placeholderText }) {
-  const [inputValue, setInputValue] = useState("");
+  const [searchParams] = useSearchParams();
+  const query = searchParams.get("q");
+
+  const [inputValue, setInputValue] = useState(query || "");
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const query = inputValue;
-
-    if (query) {
-      navigate(`/search?q=${query}`);
+    if (inputValue) {
+      navigate(`/search?q=${inputValue}`);
     } else {
       navigate("/");
     }
