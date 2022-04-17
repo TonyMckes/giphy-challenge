@@ -9,7 +9,7 @@ function Details() {
   const { id } = useParams();
   const { state } = useLocation();
 
-  const [data, setData] = useState(state ? state : {});
+  const [data, setData] = useState(state || {});
 
   const { title, user, images } = data || {};
   const { original } = images || {};
