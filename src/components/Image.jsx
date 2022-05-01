@@ -9,7 +9,7 @@ function Image({ image, title, small }) {
     <picture className={`${height > width ? "h-[31rem]" : "w-[31rem]"}`}>
       <source srcSet={webp} type="image/webp" />
       <img
-        className={`object-cover w-full transition-opacity duration-300 ease-in opacity-0 ${
+        className={`object-cover w-full h-full transition-opacity duration-300 ease-in opacity-0 ${
           small ? "aspect-square" : ""
         }`}
         src={url}
