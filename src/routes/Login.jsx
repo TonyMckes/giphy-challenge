@@ -1,0 +1,65 @@
+import InputField from "components/InputField";
+import { useAuthContext } from "context/AuthProvider";
+import login from "helpers/login";
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+
+function Login() {
+  const [errorMessage, setErrorMessage] = useState("");
+  const { register, handleSubmit, formState } = useForm();
+  const { username, password } = formState.errors;
+  const { setAuthState } = useAuthContext();
+  const navigate = useNavigate();
+
+  const onSubmit = (user) => {
+    login({ user })
+      .then((user) => {
+        setAuthState(user);
+        navigate("/");
+      })
+      .catch(setErrorMessage);
+  };
+
+  return (
+    <div className="absolute top-0 flex items-center justify-center w-full min-h-full ">
+      <div className="w-full max-w-xs p-4 rounded-md bg-zinc-700">
+        <div>
+          <h2 className="text-xl font-bold text-center">
+            Login to your account
+          </h2>
+        </div>
+        <div className="mt-6  relative">
+          {errorMessage && (
+            <span className="absolute ml-2 text-xs text-red-400 -top-5">
+              {errorMessage}
+            </span>
+          )}
+          <form className="space-y-4 " onSubmit={handleSubmit(onSubmit)}>
+            <InputField
+              error={username}
+              errorText="A username is required"
+              handler={register("username", { required: true, minLength: 5 })}
+              text="Username"
+              type="text"
+            />
+            <InputField
+              error={password}
+              errorText="A password is required"
+              handler={register("password", { required: true, minLength: 5 })}
+              text="Password"
+              type="password"
+            />
+            <div className="flex flex-row-reverse w-full">
+              <button className="px-4 py-1 text-black transition-all bg-green-500 rounded-md hover:bg-green-400 hover:shadow hover:shadow-green-400">
+                Login
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default Login;
