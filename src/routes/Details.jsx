@@ -23,7 +23,7 @@ function Details() {
     <SectionContainer heading={title}>
       <UserInfo avatar_url={avatar_url} display_name={display_name} />
 
-      <div className="flex items-center justify-center my-4 rounded bg-zinc-900/20">
+      <div className="relative flex items-center justify-center my-4 rounded bg-zinc-900/20">
         <Image title={title} image={original} />
       </div>
     </SectionContainer>
