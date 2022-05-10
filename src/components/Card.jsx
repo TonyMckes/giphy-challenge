@@ -8,11 +8,11 @@ function Card({ elementRef, id, images = {}, title, user = {} }) {
   return (
     <div
       ref={elementRef}
-      className="relative overflow-hidden duration-300 rounded hover:ring-2 bg-zinc-600 hover:bg-zinc-500 border-neutral-600"
+      className="relative overflow-hidden duration-300 rounded group hover:ring-2 bg-zinc-600 hover:bg-zinc-500 border-neutral-600"
       key={id}
     >
       <Link to={`/gallery/${id}`} state={{ title, user }}>
-        <div className="absolute top-0 z-10 w-full h-12 transition-opacity duration-500 opacity-0 cursor-default bg-gradient-to-b from-black/60 hover:opacity-100">
+        <div className="absolute top-0 z-10 w-full h-12 transition-opacity duration-500 opacity-0 group-hover:opacity-100 bg-gradient-to-b from-black/60 ">
           <UserInfo {...user} />
         </div>
 
