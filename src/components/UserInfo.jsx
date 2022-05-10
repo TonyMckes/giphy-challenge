@@ -1,14 +1,18 @@
-function UserInfo({ avatar_url, display_name }) {
+import appendBeforeExt from "helpers/appendBeforeExt";
+
+function UserInfo({ avatar_url: avatarUrl, display_name: displayName }) {
+  const avatarUrlMaxHeight = appendBeforeExt(avatarUrl, "/80h");
+
   return (
-    display_name && (
+    displayName && (
       <>
         <img
           className="inline-block object-cover w-8 h-8 m-1 rounded-full"
-          src={avatar_url}
-          alt={display_name}
+          src={avatarUrlMaxHeight}
+          alt={displayName}
         />
         <p className="inline-block text-sm font-medium truncate align-middle">
-          {display_name}
+          {displayName}
         </p>
       </>
     )
