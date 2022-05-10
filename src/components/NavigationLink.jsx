@@ -11,7 +11,7 @@ function NavigationLink({ children, handler, text, url }) {
 
   return (
     <Link
-      className="p-2 transition-all duration-75 rounded-md group hover:bg-white/10"
+      className="p-2 text-sm transition-all duration-75 rounded-md whitespace-nowrap md:text-base group hover:bg-white/10"
       onClick={handler && handleClick}
       to={url}
     >
