@@ -8,8 +8,8 @@ function SearchResults() {
   const query = searchParams.get("q");
 
   return (
-    <SectionContainer heading={`Resultados de "${query}"...`}>
-      <GridLayout urlType="search" query={query} limit={10} rating="g" />
+    <SectionContainer heading={`Resultados de "${query}"...`} ratingMenu>
+      <GridLayout urlType="search" query={query} />
     </SectionContainer>
   );
 }

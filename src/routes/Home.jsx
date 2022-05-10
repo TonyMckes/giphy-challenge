@@ -3,8 +3,8 @@ import SectionContainer from "components/SectionContainer";
 
 function Home() {
   return (
-    <SectionContainer heading="En trending...">
-      <GridLayout urlType="trending" limit={10} rating="g" />
+    <SectionContainer heading="En trending..." ratingMenu>
+      <GridLayout urlType="trending" />
     </SectionContainer>
   );
 }
