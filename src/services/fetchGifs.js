@@ -10,12 +10,11 @@ async function fetchGifs({ urlType = "", query = "", limit = 25, offset = 0, rat
 
     const API_URL = {
       search: `${GIF_URL}/search?${API_KEY}&q=${query}&limit=${limit}&offset=${offset}&rating=${rating}&lang=${lang}`,
-      trending: `${GIF_URL}/trending?${API_KEY}&limit=${limit}&rating=${rating}`,
+      trending: `${GIF_URL}/trending?${API_KEY}&limit=${limit}&offset=${offset}&rating=${rating}`,
       random: `${GIF_URL}/random?${API_KEY}&tag=${query}&rating=${rating}`,
-      byId: `${GIF_URL}/${query}?${API_KEY}`,
     };
-
-    const { data: response } = await axios.get(API_URL[urlType]);
+ 
+    const { data: response } = await axios({ url: API_URL[urlType] });
     const { data, pagination, meta } = response;
 
     return { data, pagination, meta };

@@ -3,7 +3,7 @@ import SectionContainer from "components/SectionContainer";
 import UserInfo from "components/UserInfo";
 import { useEffect, useState } from "react";
 import { useLocation, useParams } from "react-router-dom";
-import fetchGifs from "services/fetchGifs";
+import getGIF from "services/getGIF";
 
 function Details() {
   const { id } = useParams();
@@ -16,7 +16,7 @@ function Details() {
   const { avatar_url, display_name } = user || {};
 
   useEffect(() => {
-    fetchGifs({ urlType: "byId", query: id }).then(({ data }) => setData(data));
+    getGIF({ query: id }).then(({ data }) => setData(data));
   }, [id]);
 
   return (
