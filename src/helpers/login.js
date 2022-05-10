@@ -1,6 +1,6 @@
 import userLogin from "services/userLogin";
 
-async function login({ user }) {
+async function login(user) {
   try {
     const usersInDB = await userLogin();
 

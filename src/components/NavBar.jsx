@@ -6,7 +6,7 @@ import SearchBox from "./SearchBox";
 import SourceCodeLink from "./SourceCodeLink";
 
 function NavBar() {
-  const { username } = useAuthContext();
+  const { isAuth } = useAuthContext();
 
   return (
     <div className="bg-[#171544] p-4 sticky top-0 z-10">
@@ -27,7 +27,7 @@ function NavBar() {
         <div className="hidden w-1/3 text-right md:block space-2">
           <nav className="flex justify-end">
             <SourceCodeLink />
-            {!username ? (
+            {!isAuth ? (
               <NavigationLink text="Login" url="login">
                 <IoMdLogIn className="inline-block w-5 h-5 align-sub" />{" "}
               </NavigationLink>

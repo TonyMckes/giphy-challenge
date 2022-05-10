@@ -3,7 +3,7 @@ import { useAuthContext } from "context/AuthProvider";
 import login from "helpers/login";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function Login() {
   const [errorMessage, setErrorMessage] = useState("");
@@ -11,12 +11,14 @@ function Login() {
   const { username, password } = formState.errors;
   const { setAuthState } = useAuthContext();
   const navigate = useNavigate();
+  const { state } = useLocation();
+  const { pathname, search } = state || {};
 
-  const onSubmit = (user) => {
-    login({ user })
-      .then((user) => {
-        setAuthState(user);
-        navigate("/");
+  const onSubmit = (formValues) => {
+    login(formValues)
+      .then(({ username }) => {
+        setAuthState({ isAuth: true, username });
+        navigate(`${pathname}${search}` || "/", { replace: true });
       })
       .catch(setErrorMessage);
   };
