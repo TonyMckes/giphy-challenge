@@ -9,7 +9,7 @@ function SearchResults() {
 
   return (
     <SectionContainer heading={`Resultados de "${query}"...`}>
-      <GridLayout urlType="search" query={query} limit={10} rating={"g"} />
+      <GridLayout urlType="search" query={query} limit={10} rating="g" />
     </SectionContainer>
   );
 }

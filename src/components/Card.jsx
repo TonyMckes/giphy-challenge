@@ -2,11 +2,12 @@ import { Link } from "react-router-dom";
 import Image from "./Image";
 import UserInfo from "./UserInfo";
 
-function Card({ id, images = {}, title, user = {} }) {
-  const { fixed_width, fixed_height, original } = images;
+function Card({ elementRef, id, images = {}, title, user = {} }) {
+  const { fixed_width } = images;
 
   return (
     <div
+      ref={elementRef}
       className="relative overflow-hidden duration-300 rounded hover:ring-2 drop-shadow bg-zinc-600 hover:bg-zinc-500 border-neutral-600"
       key={id}
     >
