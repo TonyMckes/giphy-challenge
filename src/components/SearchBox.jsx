@@ -41,6 +41,7 @@ function SearchBox({ placeholderText }) {
         />
       </label>
       <button
+        aria-label="search"
         className="absolute z-10 mx-2 transition-colors hover:text-white text-neutral-300"
         type="submit"
       >

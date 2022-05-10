@@ -9,7 +9,7 @@ function RatingsDropdown({ handleChange, selected }) {
   return (
     <div className="relative text-sm font-medium tracking-tight group">
       <label
-        className="block text-center transition duration-150 delay-300 pointer-events-none opacity-20 md:inline group-hover:opacity-100"
+        className="block text-center transition duration-150 delay-300 pointer-events-none opacity-30 md:inline group-hover:opacity-100"
         htmlFor="ratings"
       >
         Content Rating{" "}
@@ -18,14 +18,10 @@ function RatingsDropdown({ handleChange, selected }) {
         className="p-1 text-gray-300 transition ease-in-out bg-no-repeat border border-gray-700 border-solid rounded-md hover:duration-300 bg-white/20 bg-clip-padding hover:bg-white/90 hover:text-gray-700 focus:text-gray-700 focus:bg-white/90 focus:border-blue-700 focus:outline-none"
         id="ratings"
         onChange={handleChange}
+        value={selected}
       >
         {ratingOptions.map(([rating, text]) => (
-          <option
-            className="bg-neutral-300"
-            key={rating}
-            selected={rating === selected}
-            value={rating}
-          >
+          <option className="bg-neutral-300" key={rating} value={rating}>
             {text}
           </option>
         ))}

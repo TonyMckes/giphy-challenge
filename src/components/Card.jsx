@@ -20,7 +20,7 @@ function Card({ elementRef, id, images = {}, title, user = {} }) {
           <Image title={title} image={fixed_width} small />
         </div>
 
-        <h4 className="px-2 py-3 text-sm truncate">{title}</h4>
+        <p className="px-2 py-3 text-sm truncate">{title}</p>
       </Link>
     </div>
   );

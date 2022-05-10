@@ -3,7 +3,7 @@ function UserInfo({ avatar_url, display_name }) {
     display_name && (
       <>
         <img
-          className="inline-block w-8 h-8 m-1 rounded-full"
+          className="inline-block object-cover w-8 h-8 m-1 rounded-full"
           src={avatar_url}
           alt={display_name}
         />
