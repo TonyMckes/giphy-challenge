@@ -5,6 +5,7 @@ import login from "helpers/login";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useLocation, useNavigate } from "react-router-dom";
+import { AuthCredentials } from "./../components/AuthCredentials";
 
 function Login() {
   const [errorMessage, setErrorMessage] = useState("");
@@ -62,6 +63,8 @@ function Login() {
           </form>
         </div>
       </div>
+
+      <AuthCredentials />
     </div>
   );
 }
