@@ -8,7 +8,7 @@ function Card({ elementRef, id, images = {}, title, user = {} }) {
   return (
     <div
       ref={elementRef}
-      className="relative overflow-hidden duration-300 rounded hover:ring-2 drop-shadow bg-zinc-600 hover:bg-zinc-500 border-neutral-600"
+      className="relative overflow-hidden duration-300 rounded hover:ring-2 bg-zinc-600 hover:bg-zinc-500 border-neutral-600"
       key={id}
     >
       <Link to={`/gallery/${id}`} state={{ title, user }}>
