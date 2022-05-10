@@ -1,3 +1,4 @@
+import RequireAuth from "components/RequireAuth";
 import AuthProvider from "context/AuthProvider";
 import React from "react";
 import { createRoot } from "react-dom/client";
@@ -10,15 +11,19 @@ import App from "./App";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 
+// Routes can be moved to the App component is things become more complex (to avoid nesting).
 createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
       <AuthProvider>
         <Routes>
           <Route path="/" element={<App />}>
-            <Route index element={<Home />} />
-            <Route path="search" element={<SearchResults />} />
-            <Route path="gallery/:id" element={<Details />} />
+            <Route element={<RequireAuth />}>
+              <Route index element={<Home />} />
+              <Route path="search" element={<SearchResults />} />
+              <Route path="gallery/:id" element={<Details />} />
+            </Route>
+
             <Route path="login" element={<Login />} />
           </Route>
         </Routes>
