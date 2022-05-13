@@ -1,12 +1,14 @@
 import { useAuthContext } from "context/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import userLogout from "services/userLogout";
 
 function NavigationLink({ children, handler, text, url }) {
   const { setAuthState } = useAuthContext();
+  const navigate = useNavigate();
 
   const handleClick = () => {
     setAuthState(userLogout);
+    navigate("/");
   };
 
   return (

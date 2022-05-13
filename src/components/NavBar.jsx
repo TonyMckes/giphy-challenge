@@ -1,12 +1,13 @@
 import { useAuthContext } from "context/AuthProvider";
 import { IoMdLogIn, IoMdLogOut } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import NavigationLink from "./NavigationLink";
 import SearchBox from "./SearchBox";
 import SourceCodeLink from "./SourceCodeLink";
 
 function NavBar() {
   const { isAuth } = useAuthContext();
+  const { pathname } = useLocation();
 
   return (
     <div className="bg-[#171544] p-4 sticky top-0 z-10">
@@ -27,13 +28,17 @@ function NavBar() {
         <div className="w-1/3 text-right md:block space-2">
           <nav className="flex justify-end">
             <SourceCodeLink />
-            {!isAuth ? (
-              <NavigationLink text="Login" url="login">
-                <IoMdLogIn className="inline-block w-4 h-4 md:w-5 md:h-5 align-sub" />{" "}
-              </NavigationLink>
-            ) : (
+            {isAuth ? (
               <NavigationLink handler text="Logout" url="#">
                 <IoMdLogOut className="inline-block w-4 h-4 md:w-5 md:h-5 align-sub" />{" "}
+              </NavigationLink>
+            ) : pathname === "/login" ? (
+              <NavigationLink handler text="Sign Up" url="/register">
+                <IoMdLogOut className="inline-block w-4 h-4 md:w-5 md:h-5 align-sub" />{" "}
+              </NavigationLink>
+            ) : (
+              <NavigationLink text="Login" url="/login">
+                <IoMdLogIn className="inline-block w-4 h-4 md:w-5 md:h-5 align-sub" />{" "}
               </NavigationLink>
             )}
           </nav>

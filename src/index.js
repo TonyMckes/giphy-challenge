@@ -1,3 +1,4 @@
+import Anonymous from "components/Anonymous";
 import RequireAuth from "components/RequireAuth";
 import AuthProvider from "context/AuthProvider";
 import React from "react";
@@ -7,6 +8,7 @@ import Details from "routes/Details";
 import Home from "routes/Home";
 import Login from "routes/Login";
 import SearchResults from "routes/SearchResults";
+import SignUp from "routes/SignUp";
 import App from "./App";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
@@ -25,7 +27,10 @@ createRoot(document.getElementById("root")).render(
               <Route path="gallery/:id" element={<Details />} />
             </Route>
 
-            <Route path="login" element={<Login />} />
+            <Route element={<Anonymous />}>
+              <Route path="login" element={<Login />} />
+              <Route path="register" element={<SignUp />} />
+            </Route>
           </Route>
         </Routes>
       </AuthProvider>

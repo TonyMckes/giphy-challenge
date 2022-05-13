@@ -1,4 +1,6 @@
+import { onAuthStateChanged } from "firebase/auth";
 import { createContext, useContext, useEffect, useState } from "react";
+import { auth } from "../firebase";
 
 const AuthContext = createContext();
 
@@ -6,21 +8,26 @@ export function useAuthContext() {
   return useContext(AuthContext);
 }
 
-export const authState = { isAuth: false, username: "" };
+export const authState = { isAuth: false };
 
 const initialState = () => {
   return JSON.parse(sessionStorage.getItem("auth")) || authState;
 };
 
 function AuthProvider({ children }) {
-  const [{ isAuth, username }, setAuthState] = useState(initialState);
+  const [{ isAuth }, setAuthState] = useState(initialState);
 
   useEffect(() => {
-    sessionStorage.setItem("auth", JSON.stringify({ isAuth, username }));
-  }, [isAuth, username]);
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setAuthState({ isAuth: !!user });
+      sessionStorage.setItem("auth", JSON.stringify({ isAuth: !!user }));
+    });
+
+    return () => unsubscribe();
+  }, [isAuth]);
 
   return (
-    <AuthContext.Provider value={{ isAuth, username, setAuthState }}>
+    <AuthContext.Provider value={{ isAuth, setAuthState }}>
       {children}
     </AuthContext.Provider>
   );

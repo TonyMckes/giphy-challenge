@@ -3,22 +3,25 @@ import SourceCodeLink from "components/SourceCodeLink";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import userLogin from "services/userLogin";
+import userSignUp from "services/userSignUp";
 
-function Login() {
+function SignUp() {
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const { register, handleSubmit, formState } = useForm();
-  const { email, password } = formState.errors;
-
+  const { email, password, passwordConfirm } = formState.errors;
   const navigate = useNavigate();
   const { state } = useLocation();
   const { pathname, search } = state || {};
 
   const onSubmit = (formValues) => {
+    if (formValues.password !== formValues.passwordConfirm) {
+      return setErrorMessage("Passwords do not match");
+    }
+
     setLoading(true);
 
-    userLogin(formValues)
+    userSignUp(formValues)
       .then(() => {
         navigate(pathname ? `${pathname}${search}` : "/", { replace: true });
       })
@@ -31,7 +34,7 @@ function Login() {
       <div className="w-full max-w-xs p-4 rounded-md bg-zinc-700">
         <div>
           <h2 className="text-xl font-bold text-center">
-            Login to your account
+            SignUp to get started
           </h2>
         </div>
         <div className="relative mt-6">
@@ -43,7 +46,7 @@ function Login() {
           <form className="space-y-4 " onSubmit={handleSubmit(onSubmit)}>
             <InputField
               error={email}
-              errorText="An email is required"
+              errorText="A email is required"
               handler={register("email", { required: true })}
               text="Email"
               type="text"
@@ -55,24 +58,34 @@ function Login() {
               text="Password"
               type="password"
             />
+            <InputField
+              error={passwordConfirm}
+              errorText="The password is required"
+              handler={register("passwordConfirm", {
+                required: true,
+                minLength: 6,
+              })}
+              text="Verify password"
+              type="password"
+            />
             <div className="flex justify-between w-full">
               <SourceCodeLink />
               <button
                 className="px-4 py-1 text-black transition-all bg-green-500 rounded-md disabled:cursor-not-allowed hover:bg-green-400 hover:shadow hover:shadow-green-400"
                 disabled={loading}
               >
-                Login
+                SignUp
               </button>
             </div>
           </form>
           <div className="mt-5">
             <p className="text-xs text-center text-neutral-400">
-              Don't have an account?{" "}
+              Already have an account?{" "}
               <Link
                 className="transition hover:text-green-400 hover:underline hover:underline-offset-1"
-                to="/register"
+                to="/login"
               >
-                SignUp
+                Login
               </Link>
             </p>
           </div>
@@ -82,4 +95,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default SignUp;

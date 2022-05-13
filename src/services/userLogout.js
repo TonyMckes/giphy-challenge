@@ -1,5 +1,6 @@
-import { authState } from "context/AuthProvider";
+import { signOut } from "firebase/auth";
+import { auth } from "../firebase";
 
 export default function userLogout() {
-  return authState;
+  return signOut(auth);
 }
