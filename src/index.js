@@ -18,8 +18,9 @@ createRoot(document.getElementById("root")).render(
       <AuthProvider>
         <Routes>
           <Route path="/" element={<App />}>
+            <Route index element={<Home />} />
+
             <Route element={<RequireAuth />}>
-              <Route index element={<Home />} />
               <Route path="search" element={<SearchResults />} />
               <Route path="gallery/:id" element={<Details />} />
             </Route>
