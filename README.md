@@ -1,70 +1,86 @@
-# Getting Started with Create React App
+# GIPHY Challenge
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was made as part of an activity for FrontendCafé's 2022 advanced JavaScript study group.
 
-## Available Scripts
+## Features
+ 
+- Responsive design for mobile and desktop devices
+- User registration and login
+- User authentication and authorization
+- Infinite Scrolling
+- Search functionality
+- Debounce API Requests
 
-In the project directory, you can run:
 
-### `npm start`
+## Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- JavaScript
+- React (Bootstrapped with [Create React App](https://create-react-app.dev/).)
+- Tailwind CSS
+- Firebase Authentication
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+<!--
+## Demo or Screenshots
 
-### `npm test`
+![Example Screenshot](https://via.placeholder.com/468x300?text=Screenshot+Here)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
+ -->
 
-### `npm run build`
+## Getting Started
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+These instructions will help you install and run the project on your local machine for development and testing.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Prerequisites
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Before you run the project, make sure that you have the following tools and software installed on your computer:
 
-### `npm run eject`
+- Text editor/IDE (e.g., VS Code, Sublime Text, Atom)
+- [Git](https://git-scm.com/downloads)
+- [Node.js](https://nodejs.org/en/download/) `v16.16.0+`
+- [NPM](https://www.npmjs.com/) (usually included with Node.js)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Installation
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+To install the project on your computer, follow these steps:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. Clone the repository to your local machine.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   ```bash
+   git clone https://github.com/TonyMckes/giphy-challenge.git
+   ```
 
-## Learn More
+2. Navigate to the project directory.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   ```bash
+   cd giphy-challenge
+   ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. Install project dependencies by running the command:
 
-### Code Splitting
+   ```bash
+   npm install
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Usage
 
-### Analyzing the Bundle Size
+#### Development Server
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+To run the project, follow these steps:
 
-### Making a Progressive Web App
+1. Start the development server by executing the command:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+   ```bash
+   npm run start
+   ```
 
-### Advanced Configuration
+2. Open a web browser and navigate to [`http://localhost:3000`](https://localhost:3000/) to view the project's home page.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Acknowledgments
 
-### Deployment
+- [How to write a Good readme](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)
+- [FrontendCafé](https://frontend.cafe/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Contact Info
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Created by @TonyMckes - feel free to contact me!
